@@ -1,0 +1,25 @@
+.drink-overview-container{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.drink-overview-container img{
+    width:100px;
+}
+
+.drinks-details{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.review-link{
+    margin-left: auto;
+    margin-right:10px ;
+}
+
+.bottom-overview-container{
+    display: flex;
+    align-items: center;
+}

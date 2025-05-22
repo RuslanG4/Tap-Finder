@@ -1,0 +1,13 @@
+#root {
+  width:100%;
+}
+
+:where(.css-dev-only-do-not-override-vrrzze).ant-collapse .ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
+}
+
+h1, h2{
+  margin:0;
+}
+
+
