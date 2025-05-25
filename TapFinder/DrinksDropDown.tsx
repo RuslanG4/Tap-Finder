@@ -5,69 +5,64 @@ import DrinksDropDownContent from "./DrinksDropDownContent";
 import { DrinksDropDownContentProps } from "./DrinksDropDownContent";
 
 type DrinksDropDownProps = {
-  drinkInfo : DrinksDropDownContentProps[];
+  drinkInfo: DrinksDropDownContentProps[];
   icon: ReactElement;
   title: string;
-}
+};
 
-const DrinksDropDown : React.FC<DrinksDropDownProps> = ({
-    drinkInfo,
-    icon,
-    title
+const DrinksDropDown: React.FC<DrinksDropDownProps> = ({
+  drinkInfo,
+  icon,
+  title,
 }) => {
-    const [isExpanded, setExpanded] = useState(false);
-
+  const [isExpanded, setExpanded] = useState(false);
+  const filteredDrinks = drinkInfo.filter(drink => drink.baseType === title)
   return (
-     <View>
-        {
-        <ListItem.Accordion
+    <View>
+      <ListItem.Accordion
         content={
-            <View style={styles.row}>
+          <View style={styles.row}>
             <View style={styles.leftContent}>
-                {icon}
+              {icon}
               <Text style={styles.title}>{title}</Text>
             </View>
           </View>
         }
-         isExpanded={isExpanded}
+        isExpanded={isExpanded}
         onPress={() => setExpanded(!isExpanded)}
-        >
-          {
-  drinkInfo.map((drink, index) => (
-    <ListItem key={index}>
-      <ListItem.Content>
-        <DrinksDropDownContent 
-          name={drink.name} 
-          price={drink.price} 
-          starRating={drink.starRating} 
-        />
-      </ListItem.Content>
-    </ListItem>
-  ))
-}
-        
+      >
+        {filteredDrinks
+          .map((drink, index) => (
+            <ListItem key={index}>
+              <ListItem.Content>
+                <DrinksDropDownContent
+                  baseType={drink.baseType}
+                  baseProps={drink.baseProps}
+                />
+              </ListItem.Content>
+            </ListItem>
+          ))}
       </ListItem.Accordion>
-        }
-     </View>
-  )
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
- row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '90%',
-    justifyContent: 'space-between',
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "90%",
+    justifyContent: "space-between",
     paddingRight: 10,
     paddingLeft: 10,
   },
   leftContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

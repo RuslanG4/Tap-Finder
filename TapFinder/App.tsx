@@ -13,10 +13,11 @@ function HomeScreen() {
   );
 }
 
+//temp pubpage for testing
 function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <PubPage />
+      <PubPage /> 
     </View>
   );
 }
@@ -28,7 +29,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
-          headerShown: false, // hides the top header
+          headerShown: false, //hides top header
           tabBarActiveTintColor: 'blue',
           tabBarInactiveTintColor: 'gray',
         }}
