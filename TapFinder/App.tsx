@@ -1,12 +1,12 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import "react-native-gesture-handler";
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import PubPage from './PubPage';
-import ProfilePage from './ProfilePage';
+import PubPage from "./PubPage";
+import ProfilePage from "./ProfilePage";
 
 function HomeScreen() {
   return (
@@ -33,8 +33,8 @@ const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={{
       headerShown: false,
-      tabBarActiveTintColor: 'blue',
-      tabBarInactiveTintColor: 'gray',
+      tabBarActiveTintColor: "blue",
+      tabBarInactiveTintColor: "gray",
     }}
   >
     <Tab.Screen name="Home" component={HomeScreen} />
@@ -58,8 +58,8 @@ export default function App() {
           name="PubPage"
           component={PubPage}
           options={({ navigation }) => ({
-            title: 'Pub Info',
-            headerBackTitle: 'Back',
+            title: "Pub Info",
+            headerBackTitle: "Back",
             headerShown: true,
           })}
         />
@@ -69,12 +69,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {},
+  searchBar: {
+    color: "white",
   },
-  searchBar:{
-    color:"white"
-  },
-    icon: {
+  icon: {
     marginRight: 10,
   },
 });

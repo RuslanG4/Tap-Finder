@@ -4,7 +4,7 @@ import PubHeader from "./Components/PubHomePage/PubHeader";
 import { SearchBar } from "react-native-elements";
 import DrinksMenu from "./DrinksMenu";
 import DrinksDropDownContent from "./DrinksDropDownContent";
-import { useRoute } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 
 //fake response
 const drinks = [
@@ -70,25 +70,25 @@ const drinks = [
   },
 ];
 
-const PubPage: React.FC = ({
-}) => {
+const PubPage: React.FC = ({}) => {
   const [search, SetSearch] = useState("");
 
   const route = useRoute();
   const { pubName } = route.params as { pubName: string };
 
-  const allDrinks = drinks.flatMap(group =>
-    group.contents.map(drink => ({
+  const allDrinks = drinks.flatMap((group) =>
+    group.contents.map((drink) => ({
       ...drink,
       type: group.type,
     }))
   );
 
-  const filteredData = search.length > 0
-    ? allDrinks.filter(drink =>
-        drink.name.toLowerCase().includes(search.toLowerCase())
-      )
-    : [];
+  const filteredData =
+    search.length > 0
+      ? allDrinks.filter((drink) =>
+          drink.name.toLowerCase().includes(search.toLowerCase())
+        )
+      : [];
 
   return (
     <View>
@@ -118,20 +118,20 @@ const PubPage: React.FC = ({
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <DrinksDropDownContent
-          baseProps={item}
-          baseType={item.type}
-          isSearched={true}
+            baseProps={item}
+            baseType={item.type}
+            isSearched={true}
           />
         )}
       />
-        <DrinksMenu
-          drinksResponse={drinks.flatMap(group =>
-            group.contents.map(drink => ({
-              baseType: group.type,
-              baseProps: drink,
-            }))
-          )}
-        />
+      <DrinksMenu
+        drinksResponse={drinks.flatMap((group) =>
+          group.contents.map((drink) => ({
+            baseType: group.type,
+            baseProps: drink,
+          }))
+        )}
+      />
     </View>
   );
 };

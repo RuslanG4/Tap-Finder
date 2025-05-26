@@ -4,28 +4,26 @@ import { Text, View, StyleSheet } from "react-native";
 import { Rating, Button, Overlay } from "react-native-elements";
 import LeaveReviewPopUp from "./LeaveReviewPopUp";
 
-type BaseDrinksProps ={
+type BaseDrinksProps = {
   name: string;
   price: number;
   starRating: number;
-}
+};
 
 export type DrinksDropDownContentProps = {
   baseType: string;
   baseProps: BaseDrinksProps;
-  isSearched?:boolean;
+  isSearched?: boolean;
 };
 
 const DrinksDropDownContent: React.FC<DrinksDropDownContentProps> = ({
   baseType,
   baseProps,
-  isSearched = false
+  isSearched = false,
 }) => {
   const [visible, setVisible] = useState(false);
 
   const toggleOverlay = () => setVisible(!visible);
-
-
 
   return (
     <View style={isSearched ? styles.searchedContainer : styles.container}>
@@ -43,7 +41,11 @@ const DrinksDropDownContent: React.FC<DrinksDropDownContentProps> = ({
         />
       </View>
 
-      <Overlay isVisible={visible} onBackdropPress={toggleOverlay} overlayStyle={styles.Overlay}>
+      <Overlay
+        isVisible={visible}
+        onBackdropPress={toggleOverlay}
+        overlayStyle={styles.Overlay}
+      >
         <LeaveReviewPopUp closeOverlay={() => setVisible(false)} />
       </Overlay>
     </View>
@@ -57,9 +59,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   searchedContainer: {
-    backgroundColor:"white",
+    backgroundColor: "white",
     width: "100%",
-    padding:20,
+    padding: 20,
     borderBottomWidth: 1,
     paddingVertical: 8,
   },
@@ -88,11 +90,11 @@ const styles = StyleSheet.create({
     color: "#007AFF",
   },
   Overlay: {
-    width: '90%',
-    height: '50%',
+    width: "90%",
+    height: "50%",
     padding: 20,
     borderRadius: 10,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
 });
 

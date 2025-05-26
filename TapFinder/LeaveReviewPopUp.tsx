@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Text, View, StyleSheet, TextInput  } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import { Rating, Button } from "react-native-elements";
 
 interface LeaveReviewPopUpProps {
@@ -35,7 +35,11 @@ const LeaveReviewPopUp: React.FC<LeaveReviewPopUpProps> = ({
             />
           </View>
           <View style={styles.buttonContainer}>
-            <Button title="Submit" onPress={closeOverlay} buttonStyle={styles.submitButton}  />
+            <Button
+              title="Submit"
+              onPress={closeOverlay}
+              buttonStyle={styles.submitButton}
+            />
           </View>
         </>
       )}
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: "space-between", 
+    justifyContent: "space-between",
   },
   loginWarning: {
     textAlign: "center",
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
   },
-   input: {
+  input: {
     width: "100%",
     marginTop: 15,
     borderColor: "#ccc",
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
     color: "#000",
     backgroundColor: "#f9f9f9",
   },
-  submitButton:{
+  submitButton: {
     borderWidth: 1,
     borderRadius: 8,
   },

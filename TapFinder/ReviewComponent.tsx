@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { Avatar } from "react-native-elements";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 type RootStackParamList = {
   Home: undefined; //has no params yet
-  PubPage: { pubName: string }; //passing in name for future api 
+  PubPage: { pubName: string }; //passing in name for future api
 };
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 
 type ReviewSummaryProps = {
   pubName: string;
@@ -21,10 +21,12 @@ const ReviewComponent: React.FC<ReviewSummaryProps> = ({
   pubName,
   reviewCount,
 }) => {
-     const navigation = useNavigation<NavigationProp>();
-     
+  const navigation = useNavigation<NavigationProp>();
+
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('PubPage', { pubName })}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("PubPage", { pubName })}
+    >
       <View style={styles.container}>
         <Avatar
           size="medium"
