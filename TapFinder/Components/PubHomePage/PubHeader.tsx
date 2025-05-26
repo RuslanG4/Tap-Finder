@@ -3,12 +3,16 @@ import { View, Text, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import PubName from "./PubName";
 
-const PubHeader: React.FC = ({
+type PubHeaderProps = {
+  pubname: string;
+}
+
+const PubHeader: React.FC<PubHeaderProps> = ({
+  pubname
 }) => {
   return (
     <View style={styles.pubHeader}>
-      <AntDesign name="arrowleft" size={24} color="black" style={styles.backArrow} />
-      <PubName name='Example Pub'/>
+      <PubName name={pubname}/>
       <AntDesign name="hearto" size={24} color="black" style={styles.heart} />
     </View>
   );
@@ -19,12 +23,13 @@ const styles = StyleSheet.create({
   },
   heart: {
     marginLeft: "auto",
-    marginRight:10,
+    marginRight:15,
     fontSize:22
   },
   pubHeader:{
     display:"flex",
-    marginTop:35,
+    marginTop:10,
+    paddingBottom:10,
     borderBottomColor : '#ccc',
     borderBottomWidth: 1,
     alignItems:"center",

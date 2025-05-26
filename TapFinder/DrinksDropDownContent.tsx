@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
     width: "100%",
     borderBottomColor: "#ccc",
     borderBottomWidth: 1,
-    paddingVertical: 8,
   },
   searchedContainer: {
     backgroundColor:"white",

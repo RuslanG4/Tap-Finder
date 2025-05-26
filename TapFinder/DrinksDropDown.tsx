@@ -1,8 +1,9 @@
-import React, { useState, ReactElement } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState,useEffect, ReactElement } from "react";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import DrinksDropDownContent from "./DrinksDropDownContent";
 import { DrinksDropDownContentProps } from "./DrinksDropDownContent";
+import { InteractionManager } from 'react-native';
 
 type DrinksDropDownProps = {
   drinkInfo: DrinksDropDownContentProps[];
@@ -16,7 +17,8 @@ const DrinksDropDown: React.FC<DrinksDropDownProps> = ({
   title,
 }) => {
   const [isExpanded, setExpanded] = useState(false);
-  const filteredDrinks = drinkInfo.filter(drink => drink.baseType === title)
+  const filteredDrinks = drinkInfo.filter((drink) => drink.baseType === title);
+  
   return (
     <View>
       <ListItem.Accordion
@@ -31,17 +33,20 @@ const DrinksDropDown: React.FC<DrinksDropDownProps> = ({
         isExpanded={isExpanded}
         onPress={() => setExpanded(!isExpanded)}
       >
-        {filteredDrinks
-          .map((drink, index) => (
-            <ListItem key={index}>
+        <FlatList
+          data={filteredDrinks}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <ListItem>
               <ListItem.Content>
                 <DrinksDropDownContent
-                  baseType={drink.baseType}
-                  baseProps={drink.baseProps}
+                  baseType={item.baseType}
+                  baseProps={item.baseProps}
                 />
               </ListItem.Content>
             </ListItem>
-          ))}
+          )}
+        />
       </ListItem.Accordion>
     </View>
   );

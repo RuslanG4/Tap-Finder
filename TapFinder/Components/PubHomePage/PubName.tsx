@@ -16,6 +16,7 @@ const PubName: React.FC<PubNameProps> = ({ name }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center', // center horizontally
+    marginLeft: 15,
   },
   heading: {
     fontSize: 24,

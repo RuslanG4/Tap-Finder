@@ -4,6 +4,7 @@ import PubHeader from "./Components/PubHomePage/PubHeader";
 import { SearchBar } from "react-native-elements";
 import DrinksMenu from "./DrinksMenu";
 import DrinksDropDownContent from "./DrinksDropDownContent";
+import { useRoute } from '@react-navigation/native';
 
 //fake response
 const drinks = [
@@ -69,9 +70,12 @@ const drinks = [
   },
 ];
 
-
-const PubPage: React.FC = () => {
+const PubPage: React.FC = ({
+}) => {
   const [search, SetSearch] = useState("");
+
+  const route = useRoute();
+  const { pubName } = route.params as { pubName: string };
 
   const allDrinks = drinks.flatMap(group =>
     group.contents.map(drink => ({
@@ -88,7 +92,7 @@ const PubPage: React.FC = () => {
 
   return (
     <View>
-      <PubHeader />
+      <PubHeader pubname={pubName} />
       <SearchBar
         containerStyle={{
           backgroundColor: "transparent",
