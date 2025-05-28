@@ -22,4 +22,7 @@ Here are some visuals from the app:
 ### Ratings
 ![Ratings](WIP-IMAGES/RatingPopUp.PNG)
 
+### Map Page
+![Ratings](WIP-IMAGES/MapPage.PNG)
+
 > *Images are for illustration purposes and may not represent final UI*

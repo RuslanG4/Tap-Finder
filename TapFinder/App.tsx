@@ -4,6 +4,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MapPage from "./MapPage";
 
 import PubPage from "./PubPage";
 import ProfilePage from "./ProfilePage";
@@ -11,7 +12,8 @@ import ProfilePage from "./ProfilePage";
 function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Home Tab</Text>
+      {/*  */}
+      <MapPage />
     </View>
   );
 }
@@ -69,7 +71,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex:1,
+  },
   searchBar: {
     color: "white",
   },
